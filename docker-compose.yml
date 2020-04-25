@@ -1,0 +1,13 @@
+version: "2.4"
+services:
+  postgres:
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=item
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+    mem_limit: 256M
